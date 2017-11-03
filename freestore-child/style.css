@@ -5,6 +5,6 @@ Template: freestore
 
 @font-face {
 font-family: Capture-it;
-src: url(http://northidahohandcrafted.com/wp-content/themes/freestore-child/fonts/capture_it.ttf);
+src: url("./fonts/capture_it.ttf") format('truetype'), url("./fonts/capture_it-webfont.woff") format('woff'), url("capture_it-webfont.woff2") format('woff2)');
 font-weight: normal;
 }
