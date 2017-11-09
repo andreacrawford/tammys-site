@@ -49,33 +49,32 @@ global $woocommerce; ?>
 		        <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		    <?php endif; ?>
 		</div><!-- .site-branding -->
+    <?php if ( !get_theme_mod( 'freestore-header-search' ) ) : ?>
+      <div class="menu-search">
+          <i class="fa fa-search search-btn"></i>
+        </div>
+    <?php endif; ?>
+    
+    <?php if ( freestore_is_woocommerce_activated() ) : ?>
+      <?php if ( !get_theme_mod( 'freestore-header-remove-cart' ) ) : ?>
+        <div class="header-cart">
+          
+                  <a class="header-cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart', 'freestore' ); ?>">
+                      <span class="header-cart-amount">
+                          <?php echo sprintf( _n( '(%d)', '(%d)', $woocommerce->cart->cart_contents_count, 'freestore' ), $woocommerce->cart->cart_contents_count); ?> - <?php echo $woocommerce->cart->get_cart_total(); ?>
+                      </span>
+                      <span class="header-cart-checkout <?php echo ( $woocommerce->cart->cart_contents_count > 0 ) ? sanitize_html_class( 'cart-has-items' ) : ''; ?>">
+                          <i class="fa fa-shopping-cart"></i>
+                      </span>
+                  </a>
+          
+        </div>
+      <?php endif; ?>
+    <?php endif; ?>
 	</div>
 		
 </header><!-- #masthead -->
 <div class="nav-container">
-	<?php if ( !get_theme_mod( 'freestore-header-search' ) ) : ?>
-		<div class="menu-search">
-	    	<i class="fa fa-search search-btn"></i>
-	    </div>
-	<?php endif; ?>
-	
-	<?php if ( freestore_is_woocommerce_activated() ) : ?>
-		<?php if ( !get_theme_mod( 'freestore-header-remove-cart' ) ) : ?>
-			<div class="header-cart">
-				
-                <a class="header-cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart', 'freestore' ); ?>">
-                    <span class="header-cart-amount">
-                        <?php echo sprintf( _n( '(%d)', '(%d)', $woocommerce->cart->cart_contents_count, 'freestore' ), $woocommerce->cart->cart_contents_count); ?> - <?php echo $woocommerce->cart->get_cart_total(); ?>
-                    </span>
-                    <span class="header-cart-checkout <?php echo ( $woocommerce->cart->cart_contents_count > 0 ) ? sanitize_html_class( 'cart-has-items' ) : ''; ?>">
-                        <i class="fa fa-shopping-cart"></i>
-                    </span>
-                </a>
-				
-			</div>
-		<?php endif; ?>
-	<?php endif; ?>
-
 	<nav id="site-navigation" class="main-navigation <?php echo ( get_theme_mod( 'freestore-nav-styling' ) ) ? sanitize_html_class( get_theme_mod( 'freestore-nav-styling' ) ) : sanitize_html_class( 'freestore-nav-underline' ); ?>" role="navigation">
 		<span class="header-menu-button"><i class="fa fa-bars"></i><span><?php echo esc_attr( get_theme_mod( 'freestore-header-menu-text', 'menu' ) ); ?></span></span>
 		<div id="main-menu" class="main-menu-container">
