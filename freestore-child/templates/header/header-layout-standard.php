@@ -75,13 +75,15 @@ global $woocommerce; ?>
 		
 </header><!-- #masthead -->
 <div class="nav-container">
-	<nav id="site-navigation" class="main-navigation <?php echo ( get_theme_mod( 'freestore-nav-styling' ) ) ? sanitize_html_class( get_theme_mod( 'freestore-nav-styling' ) ) : sanitize_html_class( 'freestore-nav-underline' ); ?>" role="navigation">
-		<span class="header-menu-button"><i class="fa fa-bars"></i><span><?php echo esc_attr( get_theme_mod( 'freestore-header-menu-text', 'menu' ) ); ?></span></span>
-		<div id="main-menu" class="main-menu-container">
-			<div class="main-menu-close"><i class="fa fa-angle-right"></i><i class="fa fa-angle-left"></i></div>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</div>
-	</nav><!-- #site-navigation -->
+  <div class="nav-inner">
+  	<nav id="site-navigation" class="main-navigation <?php echo ( get_theme_mod( 'freestore-nav-styling' ) ) ? sanitize_html_class( get_theme_mod( 'freestore-nav-styling' ) ) : sanitize_html_class( 'freestore-nav-underline' ); ?>" role="navigation">
+  		<span class="header-menu-button"><i class="fa fa-bars"></i><span><?php echo esc_attr( get_theme_mod( 'freestore-header-menu-text', 'menu' ) ); ?></span></span>
+  		<div id="main-menu" class="main-menu-container">
+  			<div class="main-menu-close"><i class="fa fa-angle-right"></i><i class="fa fa-angle-left"></i></div>
+  			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+  		</div>
+  	</nav><!-- #site-navigation -->
+  </div><!-- end nav-inner -->
 	
 	<div class="clearboth"></div>
 </div> <!-- end nav container -->
